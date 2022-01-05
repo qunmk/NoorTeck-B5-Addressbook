@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.noorteck.qa.utils.CommonUI;
 
 public class HomePage extends CommonUI {
+	
 
 	@FindBy(xpath = "//a[contains(@data-test,'home')]")
 	WebElement homeButton;
@@ -19,6 +20,7 @@ public class HomePage extends CommonUI {
 
 	@FindBy(xpath = "//h1[contains(text(),'Welcome to Address Book')]")
 	WebElement mainMessage;
+
 
 	public HomePage() {
 		PageFactory.initElements(driver, this);

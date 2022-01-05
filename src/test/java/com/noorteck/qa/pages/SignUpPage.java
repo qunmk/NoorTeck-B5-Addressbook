@@ -8,16 +8,20 @@ import com.noorteck.qa.utils.CommonUI;
 
 public class SignUpPage extends CommonUI {
 
-	@FindBy(id = "user_email")
+	@FindBy(xpath="//*[@id='user_email']")
 	WebElement emailField;
 
-	@FindBy(id = "user_password")
+	@FindBy(xpath = "//*[@id='user_password']")
 	WebElement passwordField;
 
-	@FindBy(xpath = "//input[@class='btn btn-primary']")
+	@FindBy(xpath = "//*[@value='Sign up']")
 	WebElement signUpButton;
-
-	public SignUpPage() {
+	
+	@FindBy(xpath="//div[@class='row']//a[@data-test='sign-in']")
+	WebElement signInButton;
+	
+	
+    public SignUpPage() {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -32,6 +36,10 @@ public class SignUpPage extends CommonUI {
 
 	public void clickEnter() {
 		click(signUpButton);
+	}
+	 public void clickSignIn() {
+		 click(signInButton);
+	
 	}
 
 }

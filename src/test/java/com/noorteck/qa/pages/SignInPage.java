@@ -8,10 +8,10 @@ import com.noorteck.qa.utils.CommonUI;
 
 public class SignInPage extends CommonUI {
 	
-	@FindBy(id = "session_email")
+	@FindBy(xpath = "//*[@id='session_email']")
 	WebElement emailIdField;
 
-	@FindBy(id = "session_password")
+	@FindBy(xpath = "//*[@id='session_password']")
 	WebElement passwordField;
 	
 	@FindBy(xpath="//input[@value='Sign in']")

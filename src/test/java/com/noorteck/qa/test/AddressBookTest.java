@@ -1,42 +1,50 @@
 package com.noorteck.qa.test;
 
+import org.testng.asserts.SoftAssert;
+
 import com.noorteck.qa.pages.SignUpPage;
+
 import com.noorteck.qa.utils.CommonUI;
 import com.noorteck.qa.utils.ObjInitialize;
 
 public class AddressBookTest extends ObjInitialize {
+	
+	
 
 		public static void main(String[] args) {
 			String url="http://a.testaddressbook.com/sign_up";
 			
-			CommonUI commonUIObj=new CommonUI();
 			
-			commonUIObj.openBrowser("chrome");
 			
-			commonUIObj.navigate(url);
+			CommonUI.openBrowser("chrome");
 			
-			ObjInitialize obj=new ObjInitialize();
+			CommonUI.navigate(url);
 			
-			obj.initializeClassObj();
-			
-			AddressBookTest testObj=new AddressBookTest();
+			initializeClassObj();
 		
-			testObj.AddressBookTestOne();
-			testObj.AddressBookTestTwo();
+			AddressBookTestOne();
+			AddressBookTestTwo();
 			
-			commonUIObj.quitBrowser();
+			CommonUI.quitBrowser();
 			
 		}
 		
-		public void AddressBookTestOne() {
+		public static void AddressBookTestOne() {
 		
 		signUpObj.enterEmail("ZohnSena@gmail.com");
 		signUpObj.enterPassword("1superStar");
 		signUpObj.clickEnter();
+        homeObj.welcome();
 		
+		String expMessage="Welcome to Address Book";
+		String actMessage=homeObj.welcome();
+		
+		SoftAssert softAssert= new SoftAssert();
+		softAssert.assertEquals(expMessage, actMessage);
+		softAssert.assertAll();
 		
 	}  
-		public void AddressBookTestTwo() {
+		public static void AddressBookTestTwo() {
 			
 			signInObj.enterEmail("ZohnSena@gmail.com");
 			signInObj.enterPassword("1superStar");
@@ -55,6 +63,34 @@ public class AddressBookTest extends ObjInitialize {
 		    addressesObj.enterNote("Automation is Fun");
 		    addressesObj.clickCreateAddress();
 		    addressesObj.clickList();
+		    
+		    String expFname="Zohn";
+		    String actFname=addressesObj.getFirstName();
+		    
+		    SoftAssert softAssert2= new SoftAssert();
+			softAssert2.assertEquals(expFname, actFname);
+			softAssert2.assertAll();
+			
+			String expLname="Sena";
+		    String actLname=addressesObj.getLastName();
+		    
+		    SoftAssert softAssert3= new SoftAssert();
+			softAssert3.assertEquals(expLname, actLname);
+			softAssert3.assertAll();
+			
+			String expCity="Reston";
+		    String actCity=addressesObj.getCity();
+		    
+		    SoftAssert softAssert4= new SoftAssert();
+			softAssert4.assertEquals(expCity, actCity);
+			softAssert3.assertAll();
+			
+			String expState="AL";
+		    String actState=addressesObj.getState();
+		    
+		    SoftAssert softAssert5= new SoftAssert();
+			softAssert5.assertEquals(expState, actState);
+			softAssert5.assertAll();
 		}
 		
 		

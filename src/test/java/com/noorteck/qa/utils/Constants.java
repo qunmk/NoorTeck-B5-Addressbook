@@ -15,14 +15,14 @@ import com.noorteck.qa.pages.SignUpPage;
 public class Constants {
 	
 	
-	public WebDriver driver;
+	public static WebDriver driver;
 	
 	//declare class objects and common objects
 	
-	public HomePage homeObj;
-	public SignUpPage signUpObj;
-	public SignInPage signInObj;
-	public AddressesPage addressesObj;
+	public static HomePage homeObj;
+	public static SignUpPage signUpObj;
+	public static SignInPage signInObj;
+	public static AddressesPage addressesObj;
 	
 	
 

@@ -140,6 +140,10 @@ public class AddressesPage extends CommonUI {
 		click(createAddressButton);
 
 	}
+	
+	public String textAddress() {
+		return getText(message);
+	}
 
 	public void clickEdit() {
 		click(editButton);
@@ -149,6 +153,20 @@ public class AddressesPage extends CommonUI {
 	public void clickList() {
 		click(listButton);
 
+	} public String getFirstName() {
+		return getText(fNameField);
+	}
+	
+	public String getLastName() {
+		return getText(lNameField);
+	}
+
+	public String getCity() {
+		return getText(cityField);
+	}
+	
+	public String getState(){
+		return getText(stateDropdown);
 	}
 
 }
